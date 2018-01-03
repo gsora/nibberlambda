@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/gsora/nibberlambda/breath"
 	"github.com/gsora/nibberlambda/nibber"
 )
 
@@ -26,15 +25,6 @@ func handleUpdate(update tgbotapi.Update, bot *tgbotapi.BotAPI) {
 		clappingArticle := tgbotapi.NewInlineQueryResultArticle(update.InlineQuery.ID+"-clapping", clappingNibba, clappingMemeStr)
 		clappingArticle.Description = clappingMemeStr
 		payload = append(payload, clappingArticle)
-
-		breathingMemeStr, err := breath.Breath(memeStr)
-		if err != nil {
-			log.Printf("[ERROR] cannot breath for request %s\n", update.InlineQuery.Query)
-		} else {
-			breathingArticle := tgbotapi.NewInlineQueryResultArticle(update.InlineQuery.ID+"-breathing", breathingSuh, breathingMemeStr)
-			breathingArticle.Description = breathingMemeStr
-			payload = append(payload, breathingArticle)
-		}
 
 		inlineConf := tgbotapi.InlineConfig{
 			InlineQueryID: update.InlineQuery.ID,
