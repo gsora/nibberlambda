@@ -1,7 +1,0 @@
-#!/usr/local/bin/bash
-
-scp -P 2222 -r ../nibberlambda localhost:~/go/src/github.com/gsora/
-
-ssh -p 2222 localhost "source ~/.bashrc; cd ~/go/src/github.com/gsora/nibberlambda; make"
-
-scp -P 2222 -r localhost:~/go/src/github.com/gsora/nibberlambda/handler.zip ./

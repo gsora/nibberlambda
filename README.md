@@ -1,10 +1,12 @@
 # `nibberlambda` - a Telegram bot to write like a ni🅱️🅱️a, leveraging AWS Lambda
 
+This branch uses the official AWS Lambda Go SDK!
+
 ## Usage
 
-To build `nibberlambda`, make sure to setup your environment as written [here](https://github.com/eawsy/aws-lambda-go-shim#quick-hands-on) - **Docker is required**.
+To build `nibberlambda`, make sure to `go get github.com/aws/aws-lambda-go/lambda` first, then `go build` in this directory, `zip nibberlambda.zip nibberlambda`.
 
-Then create a new Lambda function, upload `handler.zip` and setup an appropriate POST endpoint using API Gateway.
+Next, create a new Lambda function, upload `nibberlambda.zip` and setup an appropriate POST endpoint using API Gateway.
 
 `nibberlambda` requires two environment variables to be set:
 
